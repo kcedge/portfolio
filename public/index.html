@@ -1,0 +1,153 @@
+<!doctype html>
+
+<!-- ASSIGN OUR ANGULAR MODULE -->
+<html ng-app="scotchTodo">
+    <head>
+	<!-- META -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1"><!-- Optimize mobile viewport -->
+
+	<title>Casey Edge</title>
+
+	<!-- SCROLLS -->
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"><!-- load bootstrap -->
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">	
+	<link href="css/sassStyle.css" rel="stylesheet" type="text/css"/>
+	<!-- SPELLS -->
+	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script><!-- load angular -->
+	<script
+	    src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+
+	<script src="js/controllers/main.js"></script> <!-- load up our controller -->
+	<script src="js/services/todos.js"></script> <!-- load our todo service -->
+	<script src="js/core.js"></script> <!-- load our main application -->
+
+    </head>
+    <!-- SET THE CONTROLLER -->
+    <body ng-controller="mainController">
+	<div class="container" id='pageWrapper'>
+
+	    <!-- HEADER AND TODO COUNT -->
+	    <div class="jumbotron text-center">
+		<h1>Casey Edge</h1>
+		<h3>Full Stack Software Engineer</h3>
+		<h5><a class='white' href="https://github.com/kcedge">github.com/kcedge</a></h5>
+		<h5><a class='white' href="mailto:edge.casey@gmail.com">edge.casey@gmail.com</a></h5>
+	    </div>
+	    <div id='stickyalias'>
+	    </div>
+	    <div id='stickyheader'>
+		<div class="navBarWrapper" style="display:inline-block; width:100%">
+		    <div class='left col-md-3 col-sm-3 col-xs-3 navItem' ng-repeat="item in navBarItems" ng-click="navBarClick($index)" ng-class="{active:item.isActive}">
+			<div class='navTitle'>
+			    {{item.name}}
+			</div>
+		    </div>
+		</div>
+	    </div>
+
+	    <!-- TODO LIST -->
+	    <div id='bodyWrapper' style='min-height:500px'>
+
+		<div id='AboutWrapper' >
+		    <div id="Wrapper">
+			<div class="row">
+			    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-2">
+				<img class='thumbnail' src='./resources/imgs/IMG_1626.JPG'>
+			    </div>
+			    <div class="col-xs-9 col-sm-9 col-md-9 col-lg-10">
+				<p  class='description'>
+				    {{aboutDescription1}}
+				</p>
+				<p  class='description'>
+				    {{aboutDescription2}}
+				</p>
+			    </div>
+			</div>
+			<hr>
+			<h2>Experience				
+			    <span><img src = './resources/imgs/briefcase.png' class='icon' style='margin-top:-5px'/>
+			    </span>
+			</h2>
+
+			<div class="row">
+			    <div class="col-xs-10 col-sm-10 col-md-10">
+				<div style='display:inline-block;width:100%' class='row'>
+				    <h3 style='float:left' class='col-xs-9 col-sm-9 col-lg-9 col-md-9'>Thomson Reuters Corporation</h3>
+				    <span style='float:right;margin-top:30px' class='col-xs-3 col-sm-3 col-lg-3 col-md-3'>May 2013 - Aug 2016</span>
+				</div>
+				<p  class='description'>
+				    {{aboutDescription3}}
+				</p>
+				<div style='display:inline-block;width:100%' class='row'>
+				    <h3 style='float:left' class='col-xs-9 col-sm-9 col-lg-9 col-md-9'>Intern, Michigan Engineering Javascript Developer</h3>
+				    <span style='float:right;margin-top:30px' class='col-xs-3 col-sm-3 col-lg-3 col-md-3'>May 2012 - Sept 2012</span>
+				</div>
+				<p  class='description'>
+				    {{aboutDescription4}}
+				</p>
+			    </div>
+			    <div id='timeLineWrapper' class=' col-xs-offset-11 col-sm-offset-11 col-lg-offset-11'>
+				
+				<div class="timeline" style='margin-top:10px;height:250px;' >
+				    <div class='col-xs-offset-10 col-sm-offset-10 col-md-offset-10 col-lg-offset-10 timeblock'ng-repeat='block in [1,2,3,4,5,6,7,8,9,10]' style='height:10%;width:10px;' ng-class="{bottomBorder:($index==9)}">
+					
+				    </div>
+				</div>
+			    </div>
+			</div>
+
+		    </div>   
+		</div>
+		<div id='SkillsWrapper' class='description'>
+		    <hr>
+		    <div>
+			<h2>Skills</h2>
+		    </div>
+		    <div class='row'>
+			<div id='skillWrapper' style='display: inline-block;' class='col-sm-3 col-md-3 col-lg-2 col-xs-3'>
+			    <div  ng-repeat='skill in skills' style='float:left'>
+				{{skill.type}}
+				<ul>
+				    <li  class='language' ng-repeat='language in skill.array' id='{{language.id}}' style='cursor:pointer' ng-mouseover='hoverLanguage(language)'>
+					{{language.name}}
+
+				    </li>
+				</ul>
+			    </div>
+			</div>
+
+			<div  class='col-sm-9 col-md-9 col-lg-10 col-xs-9'>
+			    <h3 style='margin-top:-42.5px;'>{{activelanguage.name}}
+				<span class='glyphicon glyphicon-pencil small' style='color:black'></span>
+				
+				<span><img src = './resources/imgs/briefcase.png' class='icon' style='margin-top:-10px'/>
+				</span>
+				<span class='glyphicon glyphicon-star' style='color:black'/>
+
+			    </h3>
+
+			    <p>{{activelanguage.desc}}</p>
+			</div>
+		    </div>
+		</div>
+		<div id='ProjectsWrapper' class='description' >
+		    <hr>
+		    <h2>Projects</h2>
+		    <div  ng-repeat='skill in skills'>
+			{{skill.type}}
+			<ul>
+			    <li ng-repeat='language in skill.array' >
+				{{language}}
+			    </li>
+			</ul>
+		    </div>
+		</div>
+		<div id='footWrapper' style='height:500px'>
+
+
+		</div>
+	    </div>
+	</div>
+    </body>
+</html>

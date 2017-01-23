@@ -1,0 +1,24 @@
+{
+  "name": "node-todo",
+  "version": "0.0.0",
+  "description": "Simple todo application.",
+  "main": "server.js",
+  "author": "Scotch",
+  "dependencies": {
+    "body-parser": "~1.4.3",
+    "express": "~4.6.1",
+    "method-override": "~2.1.1",
+    "mongoose": "~3.8.13",
+    "morgan": "~1.1.1",
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2"
+  },
+  "devDependencies": {
+    "babel-core": "^6.22.1",
+    "babel-preset-env": "^1.1.8",
+    "jasmine-core": "^2.5.2",
+    "karma": "^1.4.0",
+    "karma-chrome-launcher": "^2.0.0",
+    "karma-jasmine": "^1.1.0"
+  }
+}
