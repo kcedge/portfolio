@@ -1,22 +1,44 @@
 body {
   font: 100% Helvetica, sans-serif;
   color: black;
-  background-color: #efefef; }
+  background-color: #f7f7f7; }
 
 #pageWrapper {
-  width: 800px;
-  margin: 0 auto;
-  background-color: #eff9ff; }
+  background-color: #f7f7f7;
+  border-left-style: solid;
+  border-right-style: solid;
+  border-left-width: thin;
+  border-right-width: thin;
+  border-color: #6ca3b2;
+  padding-left: 25px;
+  padding-right: 25px; }
 
 .white {
-  color: white; }
+  color: #ffffff; }
+
+h1, h2, h3, h4, h5, h6, h7 {
+  color: #008b95; }
 
 .jumbotron {
-  background-color: #0087ca;
-  color: white; }
+  background-color: #6ca3b2;
+  color: #ffffff; }
 
 .left {
   float: left; }
+
+#SkillsWrapper {
+  height: 675px;
+  overflow: hidden; }
+
+#skillWrapper {
+  border-style: dashed;
+  padding-top: 5px;
+  border-color: #008b95; }
+
+.skillRow {
+  margin-top: 15px;
+  margin-bottom: 5px;
+  margin-left: 5px; }
 
 #stickyheader {
   backgroundColor: #efefef;
@@ -27,9 +49,11 @@ body {
   text-align: center;
   border-right: solid;
   border-width: thin;
-  border-color: #0087ca;
-  background-color: #efefef;
-  cursor: pointer; }
+  border-color: #6ca3b2;
+  background-color: #f7f7f7;
+  color: #008b95;
+  cursor: pointer;
+  font-size: 16px; }
 
 .navBarWrapper {
   border-left: solid;
@@ -39,11 +63,14 @@ body {
 .navItem.active {
   height: 25px;
   text-align: center;
-  background-color: darkgray;
-  color: white; }
+  background-color: #e37222;
+  color: #ffffff; }
+
+.pointer {
+  cursor: pointer; }
 
 .navTitle {
-  margin-top: 7px; }
+  margin-top: 5px; }
 
 .icon {
   width: 24px;
@@ -53,11 +80,12 @@ body {
   margin-top: 25px; }
 
 .description {
-  font-size: 12px;
+  font-size: 16px;
   margin-top: 2px; }
 
 .language.active {
-  background-color: #efefef;
+  background-color: #e37222;
+  color: #ffffff;
   border-radius: 5px; }
 
 .language {

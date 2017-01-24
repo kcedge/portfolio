@@ -30,15 +30,16 @@
 	    <!-- HEADER AND TODO COUNT -->
 	    <div class="jumbotron text-center">
 		<h1>Casey Edge</h1>
-		<h3>Full Stack Software Engineer</h3>
+		<h3 class='white'>Full Stack Software Engineer</h3>
 		<h5><a class='white' href="https://github.com/kcedge">github.com/kcedge</a></h5>
 		<h5><a class='white' href="mailto:edge.casey@gmail.com">edge.casey@gmail.com</a></h5>
 	    </div>
 	    <div id='stickyalias'>
+		
 	    </div>
 	    <div id='stickyheader'>
-		<div class="navBarWrapper" style="display:inline-block; width:100%">
-		    <div class='left col-md-3 col-sm-3 col-xs-3 navItem' ng-repeat="item in navBarItems" ng-click="navBarClick($index)" ng-class="{active:item.isActive}">
+		<div class="navBarWrapper row" >
+		    <div class='col-lg-3 col-md-3 col-sm-3 col-xs-3 navItem' ng-repeat="item in navBarItems" ng-click="navBarClick($index)" ng-class="{active:item.isActive}">
 			<div class='navTitle'>
 			    {{item.name}}
 			</div>
@@ -52,10 +53,10 @@
 		<div id='AboutWrapper' >
 		    <div id="Wrapper">
 			<div class="row">
-			    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-2">
+			    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
 				<img class='thumbnail' src='./resources/imgs/IMG_1626.JPG'>
 			    </div>
-			    <div class="col-xs-9 col-sm-9 col-md-9 col-lg-10">
+			    <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
 				<p  class='description'>
 				    {{aboutDescription1}}
 				</p>
@@ -99,13 +100,13 @@
 
 		    </div>   
 		</div>
-		<div id='SkillsWrapper' class='description'>
+		<div id='SkillsWrapper' class='description' ng-mouseleave="hoverSkillsLeave()">
 		    <hr>
 		    <div>
-			<h2>Skills</h2>
+			<h2 ng-mouseenter="showGrid()" class='pointer'>Skills</h2>
 		    </div>
-		    <div class='row'>
-			<div id='skillWrapper' style='display: inline-block;' class='col-sm-3 col-md-3 col-lg-2 col-xs-3'>
+		    <div class='row' >
+			<div  id='skillWrapper' style='display: inline-block;' class='col-sm-3 col-md-2 col-lg-2 col- col-xs-3'>
 			    <div  ng-repeat='skill in skills' style='float:left'>
 				{{skill.type}}
 				<ul>
@@ -118,7 +119,7 @@
 			</div>
 
 			<div  class='col-sm-9 col-md-9 col-lg-10 col-xs-9'>
-			    <h3 style='margin-top:-42.5px;'>{{activelanguage.name}}
+			    <h3 style='margin-top:-36.5px;margin-left:10px'>{{activelanguage.name}}
 				<span class='glyphicon glyphicon-pencil small' style='color:black'></span>
 				
 				<span><img src = './resources/imgs/briefcase.png' class='icon' style='margin-top:-10px'/>
@@ -126,21 +127,44 @@
 				<span class='glyphicon glyphicon-star' style='color:black'/>
 
 			    </h3>
+			    <div id='skillDesc' ng-show='!skillsGridToggle' class='row' style='padding-left: 25px'>
+				<p class='col-lg-11 col-md-11 col-sm-11 col-xs-11'>{{activelanguage.desc}}</p>
 
-			    <p>{{activelanguage.desc}}</p>
+				<div id="skillsImgs" style="" ng-repeat='activeLangImg in activelanguage.img'>
+				    <img style='' class='col-lg-2 col-md-2 col-sm-2 col-xs-2' src="./resources/imgs/{{activeLangImg}}"/>
+				</div>
+			    </div>
+			    <div id="skillsGrid" style="" ng-show="skillsGridToggle" >
+				<div class="skillRow row"  ng-repeat="skill in skills">
+				    <div id="sillBlack" ng-repeat="language in skill.array" >
+					<img ng-mouseover='hoverLanguageImg(language)' ng-click='hoverLanguage(language)' class='col-md-2 col-lg-2 col-sm-2 col-xs-2 pointer' src="./resources/imgs/{{language.img[0]}}" style='max-height:110px;'/>
+				    </div>
+				   
+				</div>
+			    </div>
 			</div>
 		    </div>
 		</div>
 		<div id='ProjectsWrapper' class='description' >
 		    <hr>
 		    <h2>Projects</h2>
-		    <div  ng-repeat='skill in skills'>
-			{{skill.type}}
-			<ul>
-			    <li ng-repeat='language in skill.array' >
-				{{language}}
-			    </li>
-			</ul>
+		    <div  ng-repeat='project in projects'>
+			<h3><a href='{{project.url}}'>{{project.name}}</a></h3>
+			<p>{{project.desc}}</p>
+			<div id='appsWrapper' ng-repeat='app in project.apps'>
+			    <div id='appName'>
+				<h4>{{app.name}}</h4>
+			    </div>
+			    <p>{{app.desc}}</p>
+			    <div class='row '>
+				<div id='imagesWrapper' ng-repeat='image in app.imgs' > 
+				    <div id='imageWrapper' ng-class="{'col-lg-6 col-md-6 col-sm-6 col-xs-6':image.width==2,'col-lg-4 col-md-4 col-sm-4 col-xs-4':image.width==3}">
+					<h5 class=''>{{image.header}}</h5>
+					<img class='col-lg-11 col-md-11 col-sm-11 col-xs-11 ' style='max-height: 717px;max-width:667px ' src='./resources/imgs/{{image.imageUrl}}'/>
+				    </div>
+				</div>
+			    </div>
+			</div>
 		    </div>
 		</div>
 		<div id='footWrapper' style='height:500px'>

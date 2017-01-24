@@ -2,28 +2,64 @@ $font-stack:    Helvetica, sans-serif;
 $primary-color: #0087ca;
 $secondary-color:#efefef;
 
+$darkBlue:#6ca3b2;
+$darkText:#008b95;
+$darkOrange:#e37222;
+$lightOrange:#e98e4e;
+$lightBlue:#33a2aa;
+$lighestBlue:#99D1D5;
+$whiteText:#ffffff;
+$white: #f7f7f7;
+$darkGray:#757575;
 
 
 body {
   font: 100% $font-stack;
   color: black;
-  background-color: $secondary-color;
+  background-color:$white;
   //background-color: $primary-color;
 };
 #pageWrapper{
-     width: 800px;
-     margin: 0 auto;
-     background-color: #eff9ff;
+
+     background-color: $white;
+     border-left-style: solid;    
+     border-right-style: solid;  
+     border-left-width: thin;
+     border-right-width: thin;
+     border-color: $darkBlue;
+     padding-left: 25px;
+      padding-right: 25px;
 }
 .white{
-    color:white;
+    color:$whiteText;
+}
+h1, h2, h3, h4, h5, h6, h7 {
+    color:$darkText
 }
 .jumbotron{
-    background-color: #0087ca;
-    color:white;
+    background-color: $darkBlue;
+    color:$whiteText;
 }
 .left{
     float:left;
+}
+#SkillsWrapper{
+    height:675px;
+    overflow:hidden;
+    
+}
+#skillWrapper{
+    border-style: dashed;
+    padding-top: 5px;
+    border-color: $darkText;
+}
+.skillRow{
+    margin-top:15px;
+    margin-bottom:5px;
+    margin-left:5px;
+}
+.container{
+   
 }
 #stickyheader{
     backgroundColor:$secondary-color;
@@ -34,9 +70,11 @@ body {
     text-align: center;
     border-right: solid;
     border-width: thin;
-    border-color: $primary-color;
-    background-color: $secondary-color;
+    border-color: $darkBlue;
+    background-color: $white;
+    color: $darkText;
     cursor: pointer; 
+    font-size:16px;
     
 }
 .navBarWrapper{
@@ -47,12 +85,15 @@ body {
 .navItem.active{
     height:25px;
     text-align: center;
-    background-color: darkgray;
-    color:white;
+    background-color: $darkOrange;
+    color:$whiteText;
    
 }
+.pointer{
+    cursor: pointer;
+}
 .navTitle{
-    margin-top: 7px;
+    margin-top: 5px;
 }
 .icon{
     width:24px;
@@ -62,11 +103,12 @@ body {
     margin-top:25px;
 }
 .description{
-    font-size: 12px;
+    font-size: 16px;
     margin-top:2px;
 }
 .language.active{
-    background-color: $secondary-color;
+    background-color: $darkOrange;
+    color:$whiteText;
     border-radius: 5px;
     
  
