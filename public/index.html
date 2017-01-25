@@ -12,6 +12,7 @@
 	<!-- SCROLLS -->
 	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"><!-- load bootstrap -->
 	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">	
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
 	<link href="css/sassStyle.css" rel="stylesheet" type="text/css"/>
 	<!-- SPELLS -->
 	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script><!-- load angular -->
@@ -31,6 +32,7 @@
 	    <div class="jumbotron text-center">
 		<h1>Casey Edge</h1>
 		<h3 class='white'>Full Stack Software Engineer</h3>
+		<h5><a class='white' href="https://www.linkedin.com/in/casey-edge/">LinkedIn</a></h5>
 		<h5><a class='white' href="https://github.com/kcedge">github.com/kcedge</a></h5>
 		<h5><a class='white' href="mailto:edge.casey@gmail.com">edge.casey@gmail.com</a></h5>
 	    </div>
@@ -77,21 +79,36 @@
 				    <h3 style='float:left' class='col-xs-9 col-sm-9 col-lg-9 col-md-9'>Thomson Reuters Corporation</h3>
 				    <span style='float:right;margin-top:30px' class='col-xs-3 col-sm-3 col-lg-3 col-md-3'>May 2013 - Aug 2016</span>
 				</div>
-				<p  class='description'>
+				
+				<ul>
+				    <li id="thompsonBullets"  class="animated bounceInLeft expBullet">Worked in C++, C#.NET, and Javascript to develop data-driven applications</li>
+				    <li id="thompsonBullets2"  class="animated bounceInLeft expBullet">Formulated algorithms, tested functionality, designed interfaces, and maintained code for UltraTax CS professional tax software</li>
+				    <li id="thompsonBullets3"  class="animated bounceInLeft expBullet">Redeveloped internal tax team website using AngularJS and Javascript</li>
+				    <li id="thompsonBullets4"  class="animated bounceInLeft expBullet">Built a framework for real time updates of data in third party applications based on object level changes via RESTful APIs</li>
+				    <li id="thompsonBullets5"  class="animated bounceInLeft expBullet">Volunteered additional hours to teach Python to a group of novice programmers</li>
+				    
+				</ul>
+				
+				
+				<p  class='description' ng-hide="true">
 				    {{aboutDescription3}}
 				</p>
 				<div style='display:inline-block;width:100%' class='row'>
 				    <h3 style='float:left' class='col-xs-9 col-sm-9 col-lg-9 col-md-9'>Intern, Michigan Engineering Javascript Developer</h3>
 				    <span style='float:right;margin-top:30px' class='col-xs-3 col-sm-3 col-lg-3 col-md-3'>May 2012 - Sept 2012</span>
 				</div>
-				<p  class='description'>
+				<ul>
+				    <li id="internBullet"  class="animated bounceInLeft expBullet">Worked in C++, C#.NET, and Javascript to develop data-driven applications</li>
+				</ul>
+				
+				<p  class='description' ng-hide="true">
 				    {{aboutDescription4}}
 				</p>
 			    </div>
 			    <div id='timeLineWrapper' class=' col-xs-offset-11 col-sm-offset-11 col-lg-offset-11'>
 				
 				<div class="timeline" style='margin-top:10px;height:250px;' >
-				    <div class='col-xs-offset-10 col-sm-offset-10 col-md-offset-10 col-lg-offset-10 timeblock'ng-repeat='block in [1,2,3,4,5,6,7,8,9,10]' style='height:10%;width:10px;' ng-class="{bottomBorder:($index==9)}">
+				    <div class='col-xs-offset-10 col-sm-offset-10 col-md-offset-10 col-lg-offset-10 timeblock'ng-repeat='block in [1,2,3,4,5,6,7,8,9,10]' id="block{{block}}" style='height:10%;width:10px;' ng-class="{bottomBorder:($index==9)}">
 					
 				    </div>
 				</div>
@@ -120,21 +137,21 @@
 
 			<div  class='col-sm-9 col-md-9 col-lg-10 col-xs-9'>
 			    <h3 style='margin-top:-36.5px;margin-left:10px'>{{activelanguage.name}}
-				<span class='glyphicon glyphicon-pencil small' style='color:black'></span>
+				<!--<span class='glyphicon glyphicon-pencil small' style='color:black'></span>
 				
 				<span><img src = './resources/imgs/briefcase.png' class='icon' style='margin-top:-10px'/>
 				</span>
-				<span class='glyphicon glyphicon-star' style='color:black'/>
+				<span class='glyphicon glyphicon-star' style='color:black'/>-->
 
 			    </h3>
-			    <div id='skillDesc' ng-show='!skillsGridToggle' class='row' style='padding-left: 25px'>
+			    <div id='skillDesc' ng-show='false' class='row' style='padding-left: 25px'>
 				<p class='col-lg-11 col-md-11 col-sm-11 col-xs-11'>{{activelanguage.desc}}</p>
 
 				<div id="skillsImgs" style="" ng-repeat='activeLangImg in activelanguage.img'>
 				    <img style='' class='col-lg-2 col-md-2 col-sm-2 col-xs-2' src="./resources/imgs/{{activeLangImg}}"/>
 				</div>
 			    </div>
-			    <div id="skillsGrid" style="" ng-show="skillsGridToggle" >
+			    <div id="skillsGrid" style="" ng-show="true" >
 				<div class="skillRow row"  ng-repeat="skill in skills">
 				    <div id="sillBlack" ng-repeat="language in skill.array" >
 					<img ng-mouseover='hoverLanguageImg(language)' ng-click='hoverLanguage(language)' class='col-md-2 col-lg-2 col-sm-2 col-xs-2 pointer' src="./resources/imgs/{{language.img[0]}}" style='max-height:110px;'/>
@@ -167,9 +184,25 @@
 			</div>
 		    </div>
 		</div>
-		<div id='footWrapper' style='height:500px'>
+		<div id='ContactWrapper' style='height:500px'>
+		   
+		    <h2>Contact</h2>
+		    <div style='margin-left:5px'>
+		    <a href="https://www.linkedin.com/in/casey-edge/"><img style="width:50px;" src="./resources/imgs/linkedin.png"></a>
+		    <h4>Email Me</h4>
+		    <form style='margin-top:15px;width:50%' method="POST" action="https://script.google.com/macros/s/AKfycbw9qnXHGY1KcioC9yLX7490RnDk7cMsdUxDr7gebVaoPP8x-qQ/exec">
+			<div style='font-size: 14px'>Your Email</div>
+			<input style='width:35%' class='form-text form-control' type="text" name="emailFrom" />
+			<div style='font-size: 14px'>Subject</div>
+			<input style='width:35%' class='form-text form-control' type="text" name="subject" />
+			
+			<div style='font-size: 14px'>Message</div>
+			<textarea class='form-text form-control' name="body"></textarea>
 
-
+			<br/>
+			<input type="submit"  class="btn btn-primary" value="Send" />
+		    </form>
+		    </div>
 		</div>
 	    </div>
 	</div>

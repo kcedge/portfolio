@@ -8,7 +8,7 @@ angular.module('todoController', [])
 		$scope.skillsGridToggle = true;
 		$scope.formData = {};
 		$scope.loading = true;
-		$scope.navBarItems = [{name: 'About', isActive: 1}, {name: 'Skills', isActive: 0}, {name: 'Projects', isActive: 0}, {name: 'Blog', isActive: 0}];
+		$scope.navBarItems = [{name: 'About', isActive: 1}, {name: 'Skills', isActive: 0}, {name: 'Projects', isActive: 0}, {name: 'Contact', isActive: 0}];
 		$scope.aboutToggle = true;
 		$scope.aboutDescription1 = "Hi, my name is Casey Edge.  I have a  strong computer science background \n\
 					    and interest in software development, specifically web technologeis.  I attended \n\
@@ -75,7 +75,7 @@ angular.module('todoController', [])
 		];
 
 		var mphelperDesc = "Music Production Helper's goal is to help music producers. The MPH plan is write as many creative, functional, and easy to use applications to help music producers learn what the need to know.";
-		var decksDesc = "Decks is a sports game mobile app.  Each deck contains 8 cards with a pro-athlete and 2 stats on the font.  The player chooses a stat and swipes the card up or down for over or under. ";
+		var decksDesc = "Decks is a sports game mobile app.  Each deck contains cards which have a pro-athlete and 2 stats on the front.  The player chooses a stat and swipes the card up or down for over or under. Players compete to see who can get the most cards correct.";
 		var chromaticWheelDesc="This application allows you to quickly vizulize your scales and chords on the Chromatic Wheel.";
 		var tipLibDesc ="In order to become a better producer quickly, it is very important to collaborate with other producers to gain knowledge from each other.\n\
 					The idea of the MPH Tip Library is to create a network of users that can create blog style tips or tutorials to help other users.\n\
@@ -132,14 +132,31 @@ angular.module('todoController', [])
 			    $('#stickyheader').css({position: 'static', top: '0px',width:''});
 			    $('#stickyalias').css('display', 'none');
 			}
+			
+			
 		    });
 		});
 		
+		window.onload = function () {
+		    // this will fire after the entire page is loaded, including images
+		    $scope.hoverLanguage($scope.skills[0].array[0]);
+		    $("#thompsonBullets").addClass('ng-hide');
+		    $("#thompsonBullets2").addClass('ng-hide');
+		    $("#thompsonBullets3").addClass('ng-hide');
+		    $("#thompsonBullets4").addClass('ng-hide');
+		    $("#thompsonBullets5").addClass('ng-hide');
+		    $("#internBullet").addClass('ng-hide');
+		    for(var i = 1;i<=10;i++){
+				    $("#block"+i.toString()).removeClass('backGroundRed');
+				}
+		};
+		$scope.bulletsToggle = true;
 		$(function () {
 		    // Check the initial Poistion of the Sticky Header
 		    $scope.stickyHeaderTop = $('#stickyheader').offset().top;
 		    var stickyHeight = $('#stickyheader').height();
 		    var stickyWidth = $('#stickyheader').width();
+		    
 		    $(window).scroll(function () {
 			if ($(window).scrollTop() > $scope.stickyHeaderTop) {
 			    $('#stickyheader').css({position: 'fixed', top: '0px', height: stickyHeight,width:stickyWidth});
@@ -149,8 +166,114 @@ angular.module('todoController', [])
 			    $('#stickyheader').css({position: 'static', top: '0px',width:''});
 			    $('#stickyalias').css('display', 'none');
 			}
+			
+			var scrollTop = $(window).scrollTop() ;
+			if (scrollTop > 0) {
+				$scope.bulletsToggle = false;
+				$("#thompsonBullets").removeClass('ng-hide');
+				$("#block10").addClass('backGroundRed');
+				$("#block9").addClass('backGroundRed');
+			} 
+			else {
+				$("#thompsonBullets").addClass('ng-hide');
+				$("#thompsonBullets2").addClass('ng-hide');
+				$("#thompsonBullets3").addClass('ng-hide');
+				$("#thompsonBullets4").addClass('ng-hide');
+				$("#thompsonBullets5").addClass('ng-hide');
+				$("#internBullet").addClass('ng-hide');
+				$("#thompsonBullets4").addClass('ng-hide');
+				for(var i = 1;i<=10;i++){
+				    $("#block"+i.toString()).removeClass('backGroundRed');
+				}
+				
+	
+				
+			}
+			
+			if (scrollTop> 100) {
+				$("#thompsonBullets2").removeClass('ng-hide');
+				$("#block8").addClass('backGroundRed');
+				$("#block7").addClass('backGroundRed');
+			}
+			else{
+				$("#thompsonBullets2").addClass('ng-hide');
+				$("#thompsonBullets3").addClass('ng-hide');
+				$("#thompsonBullets4").addClass('ng-hide');
+				$("#thompsonBullets5").addClass('ng-hide');
+				$("#internBullet").addClass('ng-hide');
+				for(var i = 1;i<=8;i++){
+				    $("#block"+i.toString()).removeClass('backGroundRed');
+				}
+				
+			}
+			
+			if (scrollTop> 200) {
+				$("#thompsonBullets3").removeClass('ng-hide');
+				$("#block6").addClass('backGroundRed');
+				$("#block5").addClass('backGroundRed');
+			}
+			else{
+				$("#thompsonBullets3").addClass('ng-hide');
+				$("#thompsonBullets4").addClass('ng-hide');
+				$("#thompsonBullets5").addClass('ng-hide');
+				$("#internBullet").addClass('ng-hide');
+				for(var i = 1;i<=6;i++){
+				    $("#block"+i.toString()).removeClass('backGroundRed');
+				}
+				
+			}
+			
+			if (scrollTop> 300) {
+				$("#thompsonBullets4").removeClass('ng-hide');
+				$("#block4").addClass('backGroundRed');
+				$("#block3").addClass('backGroundRed');
+			}
+			else{
+				$("#thompsonBullets4").addClass('ng-hide');
+				$("#thompsonBullets5").addClass('ng-hide');
+				$("#internBullet").addClass('ng-hide');
+				for(var i = 1;i<=4;i++){
+				    $("#block"+i.toString()).removeClass('backGroundRed');
+				}
+				
+			}
+			
+			if (scrollTop> 400) {
+				$("#thompsonBullets5").removeClass('ng-hide');
+				$("#block2").addClass('backGroundRed');
+				$("#block1").addClass('backGroundRed');
+			}
+			else{
+				$("#thompsonBullets5").addClass('ng-hide');
+				$("#internBullet").addClass('ng-hide');
+				for(var i = 1;i<=2;i++){
+				    $("#block"+i.toString()).removeClass('backGroundRed');
+				}
+				
+			}
+			
+			if (scrollTop> 500) {
+				$("#internBullet").removeClass('ng-hide');
+				
+			}
+			else{
+
+				$("#internBullet").addClass('ng-hide');
+				
+			
+			}
+			
+			
+			
+			
+			
 		    });
+		    
+		    
+		    
+		    
 		});
+		
 		$scope.hoverLanguage = function (el) {
 		    for (var s = 0; s < $scope.skills.length; s++) {
 			for (var l = 0; l < $scope.skills[s].array.length; l++) {
@@ -175,10 +298,7 @@ angular.module('todoController', [])
 		$scope.hoverSkillsLeave = function(){
 		    $scope.skillsGridToggle = true;	
 		}
-		window.onload = function () {
-		    // this will fire after the entire page is loaded, including images
-		    $scope.hoverLanguage($scope.skills[0].array[0]);
-		};
+		
 		$scope.showGrid = function(){
 		     $scope.skillsGridToggle = true;
 		 }
